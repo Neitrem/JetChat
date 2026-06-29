@@ -10,5 +10,7 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 
 val LightBackground = Color(0xFFFFFFFF)
+val LightSecondary = Color(0xFFFCF9FC)
+val LightOnSecondary = Color(0xFF1C1B1F)
 val LightOnBackground = Color(0xFF000000)
 val LightTertiary = Color(0xFF646464)

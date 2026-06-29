@@ -3,10 +3,6 @@ package com.neitrem.jetchat.featureChat.presentation.chat.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.outlined.Info
-import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -17,6 +13,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -24,6 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.neitrem.jetchat.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview()
@@ -77,7 +75,7 @@ fun ChatTopBar(
                 onClick = { /* TODO add action */ },
             ) {
                 Icon(
-                    imageVector = Icons.Filled.Menu,
+                    painter = painterResource(R.drawable.bootstrap_list),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.tertiary,
                     modifier = Modifier.size(30.dp),
@@ -87,7 +85,7 @@ fun ChatTopBar(
         actions = {
             IconButton(onClick = { /* TODO add action */ }) {
                 Icon(
-                    imageVector = Icons.Outlined.Search,
+                    painter = painterResource(R.drawable.bootstrap_search),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.tertiary,
                     modifier = Modifier.size(25.dp),
@@ -95,7 +93,7 @@ fun ChatTopBar(
             }
             IconButton(onClick = { /* TODO add action */ }) {
                 Icon(
-                    imageVector = Icons.Outlined.Info,
+                    painter = painterResource(R.drawable.bootstrap_info_circle),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.tertiary,
                     modifier = Modifier.size(25.dp),
