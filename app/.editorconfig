@@ -1,0 +1,16 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[*.{kt,kts}]
+ktlint_standard = enabled
+ktlint_standard_package_name = disabled
+ktlint_disabled_rules = no-wildcard-imports
+ktlint_code_style = ktlint_official
+ktlint_function_naming_ignore_when_annotated_with = Composable
