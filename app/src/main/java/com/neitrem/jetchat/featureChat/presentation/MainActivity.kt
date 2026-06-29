@@ -1,10 +1,10 @@
-package com.neitrem.jetchat.feature_chat.presentation
+package com.neitrem.jetchat.featureChat.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.neitrem.jetchat.feature_chat.presentation.chat.ChatScreen
+import com.neitrem.jetchat.featureChat.presentation.chat.ChatScreen
 import com.neitrem.jetchat.ui.theme.JetChatTheme
 
 class MainActivity : ComponentActivity() {

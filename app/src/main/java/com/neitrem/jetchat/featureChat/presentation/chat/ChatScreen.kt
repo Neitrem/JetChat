@@ -1,11 +1,11 @@
-package com.neitrem.jetchat.feature_chat.presentation.chat
+package com.neitrem.jetchat.featureChat.presentation.chat
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.neitrem.jetchat.feature_chat.presentation.chat.components.ChatTopBar
+import com.neitrem.jetchat.featureChat.presentation.chat.components.ChatTopBar
 
 @Composable
 fun ChatScreen() {
