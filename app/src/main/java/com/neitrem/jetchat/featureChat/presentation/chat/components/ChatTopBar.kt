@@ -88,7 +88,7 @@ fun ChatTopBar(
                     painter = painterResource(R.drawable.bootstrap_search),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.tertiary,
-                    modifier = Modifier.size(25.dp),
+                    modifier = Modifier.size(20.dp),
                 )
             }
             IconButton(onClick = { /* TODO add action */ }) {
@@ -96,7 +96,7 @@ fun ChatTopBar(
                     painter = painterResource(R.drawable.bootstrap_info_circle),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.tertiary,
-                    modifier = Modifier.size(25.dp),
+                    modifier = Modifier.size(20.dp),
                 )
             }
         },

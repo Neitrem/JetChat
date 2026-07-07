@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 
 private val LightColorScheme =
     lightColorScheme(
-        primary = Purple40,
+        primary = LightPrimary,
         secondary = LightSecondary,
         tertiary = LightTertiary,
         background = LightBackground,
@@ -58,6 +58,7 @@ fun JetChatTheme(
         }
 
     MaterialTheme(
+
         colorScheme = colorScheme,
         typography = Typography,
         content = content,

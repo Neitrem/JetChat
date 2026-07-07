@@ -12,7 +12,7 @@ import javax.inject.Inject
 import kotlin.String
 import kotlin.reflect.typeOf
 
-@HiltViewModel(assistedFactory = ChatBottomBarViewModel.Factory::class)
+@HiltViewModel(assistedFactory = ChatBottomBarViewModel.ChatBottomBarViewModelFactory::class)
 class ChatBottomBarViewModel
     @AssistedInject
     constructor(
@@ -21,7 +21,7 @@ class ChatBottomBarViewModel
         private val _textFieldState = mutableStateOf(initialText)
 
         @AssistedFactory
-        interface Factory {
+        interface ChatBottomBarViewModelFactory {
             fun create(initialText: String): ChatBottomBarViewModel
         }
 
