@@ -21,7 +21,6 @@ fun ChatScreen() {
     Scaffold(
         modifier =
             Modifier
-//                .navigationBarsPadding()
                 .imePadding()
                 .pointerInput(Unit) {
                     detectTapGestures(

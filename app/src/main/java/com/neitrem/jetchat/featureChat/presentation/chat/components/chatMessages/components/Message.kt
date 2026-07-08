@@ -35,7 +35,7 @@ import java.util.Date
 @Composable
 fun Message(message: MessageModel) {
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp),
         horizontalAlignment =
             when {
                 message.authorID != "111" -> Alignment.Start

@@ -1,15 +1,11 @@
 package com.neitrem.jetchat.ui.customShapes
 
-import androidx.compose.foundation.background
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
@@ -18,7 +14,7 @@ import androidx.compose.ui.unit.dp
 class LeftBubbleShape(
     private val cornerShape: Dp = 16.dp,
     private val arrowWidth: Dp = 8.dp,
-    private val arrowHeight: Dp = 12.dp,
+    private val arrowHeight: Dp = 20.dp,
 ) : Shape {
     override fun createOutline(
         size: Size,
