@@ -1,4 +1,4 @@
-package com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.components
+package com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.utils
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
