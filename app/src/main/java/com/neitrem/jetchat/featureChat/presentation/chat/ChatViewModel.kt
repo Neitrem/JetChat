@@ -1,7 +1,8 @@
 package com.neitrem.jetchat.featureChat.presentation.chat
 
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.neitrem.jetchat.featureChat.presentation.chat.components.chatBottomBar.ChatBottomBarViewModel
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,8 +11,16 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 class ChatViewModel
     @AssistedInject
     constructor() : ViewModel() {
+        private var _chatState = mutableStateOf(ChatState())
+
+        val chatState: State<ChatState> = _chatState
+
         @AssistedFactory
         interface ChatViewModelFactory {
             fun create(): ChatViewModel
+        }
+
+        fun loadData() {
+            ChatState.loading()
         }
     }

@@ -1,5 +1,6 @@
 package com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.components
 
+import android.os.Message
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.neitrem.jetchat.R
 import com.neitrem.jetchat.featureChat.domain.models.MessageModel
+import com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.utils.ConversationSide
 import com.neitrem.jetchat.ui.customShapes.LeftBubbleShape
 import com.neitrem.jetchat.ui.customShapes.RightBubbleShape
 import java.time.Instant
@@ -35,57 +37,70 @@ import java.util.Date
 @Composable
 fun Message(message: MessageModel) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp),
         horizontalAlignment =
             when {
                 message.authorID != "111" -> Alignment.Start
                 else -> Alignment.End
             },
     ) {
-        Row(
+        AuthorInfo(message)
+        MessageBody(message)
+    }
+}
+
+@Composable
+fun AuthorInfo(message: MessageModel) {
+    Row(
+        modifier =
+            Modifier
+                .wrapContentSize(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement =
+            when {
+                message.authorID != "111" -> ConversationSide.Receiver
+                else -> ConversationSide.Sender
+            },
+    ) {
+        Image(
+            painter =
+                rememberAsyncImagePainter(
+                    model =
+                        "https://yavuzceliker.github.io/sample-images/" +
+                            "image-${message.authorID}.jpg",
+                    placeholder = painterResource(R.drawable.photo),
+                ),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
             modifier =
                 Modifier
-                    .wrapContentSize(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement =
-                when {
-                    message.authorID != "111" -> ConversationSide.Receiver
-                    else -> ConversationSide.Sender
-                },
-        ) {
-            Image(
-                painter =
-                    rememberAsyncImagePainter(
-                        model =
-                            "https://yavuzceliker.github.io/sample-images/" +
-                                "image-${message.authorID}.jpg",
-                        placeholder = painterResource(R.drawable.photo),
-                    ),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier =
-                    Modifier
-                        .clip(CircleShape)
-                        .size(30.dp),
-            )
-            Text(message.authorID, modifier = Modifier.padding(start = 5.dp, end = 5.dp))
-        }
-        Box(
+                    .clip(CircleShape)
+                    .size(30.dp),
+        )
+        Text(message.authorID, modifier = Modifier.padding(start = 5.dp, end = 5.dp))
+    }
+}
+
+@Composable
+fun MessageBody(message: MessageModel) {
+    Box(
+        modifier =
+            Modifier
+                .wrapContentSize()
+                .drawMessageBubble(
+                    isAuthorLogin = message.authorID == "111",
+                ),
+    ) {
+        Text(
+            text = message.text,
             modifier =
-                Modifier
-                    .wrapContentSize()
-                    .drawMessageBubble(
-                        isAuthorLogin = message.authorID == "111",
-                    ),
-        ) {
-            Text(
-                text = message.text,
-                modifier =
-                    Modifier.padding(
-                        20.dp,
-                    ),
-            )
-        }
+                Modifier.padding(
+                    20.dp,
+                ),
+        )
     }
 }
 
@@ -103,64 +118,4 @@ private fun PreviewMessage() {
                 text = "Test text",
             ),
     )
-}
-
-@Composable
-fun Modifier.drawMessageBubble(
-    isAuthorLogin: Boolean,
-    cornerShape: Dp = 16.dp,
-    arrowWidth: Dp = 8.dp,
-    arrowHeight: Dp = 12.dp,
-) = padding(
-    start = if (isAuthorLogin) 12.dp else 35.dp,
-    end = if (isAuthorLogin) 35.dp else 12.dp,
-).background(
-    color =
-        if (isAuthorLogin) {
-            MaterialTheme.colorScheme.primary
-        } else {
-            MaterialTheme.colorScheme.secondary
-        },
-    shape =
-        if (isAuthorLogin) {
-            RightBubbleShape(
-                cornerShape = cornerShape,
-                arrowWidth = arrowWidth,
-                arrowHeight = arrowHeight,
-            )
-        } else {
-            LeftBubbleShape(
-                cornerShape = cornerShape,
-                arrowWidth = arrowWidth,
-                arrowHeight = arrowHeight,
-            )
-        },
-)
-
-private sealed interface ConversationSide : Arrangement.Horizontal {
-    data object Sender : ConversationSide {
-        override fun Density.arrange(
-            totalSize: Int,
-            sizes: IntArray,
-            layoutDirection: LayoutDirection,
-            outPositions: IntArray,
-        ) {
-            with(Arrangement.Start) {
-                arrange(
-                    totalSize = totalSize,
-                    sizes = sizes,
-                    layoutDirection =
-                        when (layoutDirection) {
-                            LayoutDirection.Ltr -> LayoutDirection.Rtl
-                            LayoutDirection.Rtl -> LayoutDirection.Ltr
-                        },
-                    outPositions = outPositions,
-                )
-            }
-        }
-    }
-
-    data object Receiver :
-        ConversationSide,
-        Arrangement.Horizontal by Arrangement.Start
 }
