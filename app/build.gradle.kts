@@ -66,6 +66,10 @@ dependencies {
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil.kt.coil.compose)
 
+    // Http
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio.z)
+
     // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

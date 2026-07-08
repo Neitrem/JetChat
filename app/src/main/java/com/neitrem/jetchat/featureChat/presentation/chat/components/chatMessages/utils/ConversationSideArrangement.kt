@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 
-sealed interface ConversationSide : Arrangement.Horizontal {
-    data object Sender : ConversationSide {
+sealed interface ConversationSideArrangement : Arrangement.Horizontal {
+    data object Sender : ConversationSideArrangement {
         override fun Density.arrange(
             totalSize: Int,
             sizes: IntArray,
@@ -28,6 +28,6 @@ sealed interface ConversationSide : Arrangement.Horizontal {
     }
 
     data object Receiver :
-        ConversationSide,
+        ConversationSideArrangement,
         Arrangement.Horizontal by Arrangement.Start
 }

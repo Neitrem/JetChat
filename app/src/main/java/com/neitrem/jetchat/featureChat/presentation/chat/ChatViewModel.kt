@@ -11,6 +11,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 class ChatViewModel
     @AssistedInject
     constructor() : ViewModel() {
+        init {
+            loadData()
+        }
+
         private var _chatState = mutableStateOf(ChatState())
 
         val chatState: State<ChatState> = _chatState
@@ -21,6 +25,6 @@ class ChatViewModel
         }
 
         fun loadData() {
-            ChatState.loading()
+            _chatState.value = chatState.value.loading()
         }
     }

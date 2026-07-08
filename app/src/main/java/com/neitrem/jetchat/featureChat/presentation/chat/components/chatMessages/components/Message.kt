@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.neitrem.jetchat.R
 import com.neitrem.jetchat.featureChat.domain.models.MessageModel
-import com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.utils.ConversationSide
+import com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.utils.ConversationSideArrangement
 import com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.utils.drawMessageBubble
 import java.time.Instant
 import java.util.Date
@@ -53,8 +53,8 @@ fun AuthorInfo(message: MessageModel) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement =
             when {
-                message.authorID != "111" -> ConversationSide.Receiver
-                else -> ConversationSide.Sender
+                message.authorID != "111" -> ConversationSideArrangement.Receiver
+                else -> ConversationSideArrangement.Sender
             },
     ) {
         Image(
