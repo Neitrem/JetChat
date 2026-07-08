@@ -1,4 +1,4 @@
-package com.neitrem.jetchat.featureChat.presentation.chat.components
+package com.neitrem.jetchat.featureChat.presentation.chat.components.chatTopBar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

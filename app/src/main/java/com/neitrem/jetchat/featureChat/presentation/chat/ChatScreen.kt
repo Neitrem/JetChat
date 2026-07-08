@@ -1,9 +1,8 @@
 package com.neitrem.jetchat.featureChat.presentation.chat
 
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -11,10 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.neitrem.jetchat.featureChat.presentation.chat.components.ChatTopBar
 import com.neitrem.jetchat.featureChat.presentation.chat.components.chatBottomBar.ChatBottomBar
 import com.neitrem.jetchat.featureChat.presentation.chat.components.chatBottomBar.ChatBottomBarViewModel
-import com.neitrem.jetchat.featureChat.presentation.chat.components.chatBottomBar.ChatBottomBarViewModelFactory
+import com.neitrem.jetchat.featureChat.presentation.chat.components.chatMessages.ChatMessages
+import com.neitrem.jetchat.featureChat.presentation.chat.components.chatTopBar.ChatTopBar
 
 @Composable
 fun ChatScreen() {
@@ -46,5 +45,7 @@ fun ChatScreen() {
                     ),
             )
         },
-    ) { innerPadding -> Spacer(modifier = Modifier.padding(innerPadding)) }
+    ) { innerPadding ->
+        ChatMessages(modifier = Modifier.padding(innerPadding))
+    }
 }
